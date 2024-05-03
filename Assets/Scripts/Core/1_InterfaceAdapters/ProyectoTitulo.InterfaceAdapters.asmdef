@@ -1,0 +1,17 @@
+{
+    "name": "ProyectoTitulo.InterfaceAdapters",
+    "rootNamespace": "ProyectoTitulo.InterfaceAdapters",
+    "references": [
+        "GUID:03fbe2e037af99a46b30b6623f96e5c0",
+        "GUID:a5f49973e7ca9e74f8ee70020ad08adb"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
