@@ -1,19 +1,28 @@
+using ProyectoTitulo.Domain;
 using ProyectoTitulo.Entities;
+using ProyectoTitulo.SystemUtilities;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Setup_DebugRoom : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        var player = new Player();
-    }
+        var actorRepository = ServiceLocator.Instance.GetService<IActorRepository>();
+        var playerRepository = ServiceLocator.Instance.GetService<IPlayerRepository>();
 
-    // Update is called once per frame
-    void Update()
+        var actor0 = actorRepository.Add("Mario");
+        var actor1 = actorRepository.Add("Luigi");
+        playerRepository.currentPlayer.AddActor(new List<string>
+        {
+            actor0,
+            actor1
+        });
+
+    }
+    private void Start()
     {
-        
+        ServiceLocator.Instance.GetService<ShowAvailableActors>().Show();
     }
 }

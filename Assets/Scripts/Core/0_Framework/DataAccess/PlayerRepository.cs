@@ -10,7 +10,7 @@ namespace ProyectoTitulo.Framework
     public class PlayerRepository : IPlayerRepository
     {
         private readonly Player _player;
-        public Player current => _player;
+        public Player currentPlayer => _player;
 
         public PlayerRepository()
         {

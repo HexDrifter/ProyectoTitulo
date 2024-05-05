@@ -7,6 +7,6 @@ namespace ProyectoTitulo.Domain
     using Entities;
     public interface IPlayerRepository
     {
-        Player current {  get; }
+        Player currentPlayer {  get; }
     }
 }
