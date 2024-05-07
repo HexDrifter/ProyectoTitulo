@@ -8,19 +8,19 @@ using UnityEngine;
 
 public class CoreInstaller : MonoBehaviour
 {
+    [SerializeField] private ActorsDatabase _actorsDatabase;
     private void Awake()
     {
         var playerRepository = new PlayerRepository();
         var actorRepository = new ActorRepository();
 
+
         ServiceLocator.Instance.RegisterService<IPlayerRepository>(playerRepository);
         ServiceLocator.Instance.RegisterService<IActorRepository>(actorRepository);
 
+        _actorsDatabase.Preload();
 
-        var actorsPresenterContainer = new ActorsPresenterContainers();
-        var showAvailableActorsUseCase = new ShowAvailableActorsUseCase(playerRepository,
-                                                                        actorRepository,
-                                                                        actorsPresenterContainer);
-        ServiceLocator.Instance.RegisterService<ShowAvailableActors>(showAvailableActorsUseCase);
+        ServiceLocator.Instance.RegisterService<ActorsDatabase>(_actorsDatabase);
+        
     }
 }

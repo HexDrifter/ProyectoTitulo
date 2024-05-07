@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ProyectoTitulo.InterfaceAdapters
 {
-    public class ActorsPresenterContainers : ShowAvailableActorsOutput
+    public class ActorsPresenterContainers
     {
         private Dictionary<string, ActorPresenter> _presenterToEntityID;
 
@@ -14,19 +14,10 @@ namespace ProyectoTitulo.InterfaceAdapters
             _presenterToEntityID = new Dictionary<string, ActorPresenter>();
         }
 
-        public void Show(List<AvailableActorsData> availableActorsData)
+        public void AddNewPresenter(string entityID, ActorPresenter presenter)
         {
-            foreach(var availableActorData in availableActorsData)
-            {
-                AddNewPresenter(availableActorData);
-            }
-        }
-
-        private void AddNewPresenter(AvailableActorsData availableActorData)
-        {
-            var actorViewModel = new ActorViewModel(availableActorData.ActorBaseID);
-            var actorPresenter = new ActorPresenter(actorViewModel);
-            _presenterToEntityID.Add(availableActorData.ActorEntityID, actorPresenter);
+            
+            _presenterToEntityID.Add(entityID,presenter);
         }
     }
 }

@@ -21,13 +21,13 @@ namespace ProyectoTitulo.Domain
 
         public void Show()
         {
-            Debug.Log("Mostrando Actores");
-            var actorsToShow = new List<AvailableActorsData>();
-            var allActors = _playerRepository.currentPlayer.availableActors;
+
+            var actorsToShow    = new List<AvailableActorsData>();
+            var allActors       = _playerRepository.currentPlayer.availableActors;
             foreach (var actorEntityID in allActors)
             {
-                var actor = _actorRepository.Get(actorEntityID);
-                actorsToShow.Add(new AvailableActorsData(actor.EntityID,actor.BaseID));
+                var actor       = _actorRepository.Get(actorEntityID);
+                actorsToShow    .Add(new AvailableActorsData(actor.EntityID,actor.BaseID));
             }
             _output.Show(actorsToShow);
         }
