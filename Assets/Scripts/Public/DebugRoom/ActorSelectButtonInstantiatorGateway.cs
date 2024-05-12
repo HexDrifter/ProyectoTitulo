@@ -8,30 +8,37 @@ namespace ProyectoTitulo.Framework
 {
     public class ActorSelectButtonInstantiatorGateway : ShowAvailableActorsOutput
     {
-        private readonly ActorsPresenterContainers _actorsPresenterContainers;
+        private readonly SelectAvailableActorsPresenterContainers _selectAvailableActorsPresenterContainers;
         private readonly ActorSelectButtonView _actorSelectButtonView;
-        private readonly Transform _ActorSelectButtonsContainer;
+        private readonly Transform _actorSelectButtonsContainerTransform;
 
-        public ActorSelectButtonInstantiatorGateway(ActorsPresenterContainers actorsPresenterContainers,
+        public ActorSelectButtonInstantiatorGateway(SelectAvailableActorsPresenterContainers actorsPresenterContainers,
                                                     ActorSelectButtonView actorSelectButtonView,
                                                     Transform actorSelectButtonsContainer)
         {
-            _actorsPresenterContainers = actorsPresenterContainers;
+            _selectAvailableActorsPresenterContainers = actorsPresenterContainers;
             _actorSelectButtonView = actorSelectButtonView;
-            _ActorSelectButtonsContainer = actorSelectButtonsContainer;
+            _actorSelectButtonsContainerTransform = actorSelectButtonsContainer;
         }
 
-        public void Show(List<AvailableActorsData> availableActorsData)
+        public void Hide(ShowContainerData data)
+        {
+            _selectAvailableActorsPresenterContainers.Hide(data);
+        }
+
+        public void Show(List<AvailableActorsData> availableActorsData, ShowContainerData data)
         {
             foreach (var actorData in availableActorsData)
             {
                 var actorViewModel = new ActorViewModel(actorData.ActorEntityID, actorData.ActorBaseID);
                 var actorPresenter = new ActorPresenter(actorViewModel);
-                _actorsPresenterContainers.AddNewPresenter(actorData.ActorEntityID, actorPresenter);
+                _selectAvailableActorsPresenterContainers.AddNewPresenter(actorData.ActorEntityID, actorPresenter);
                 var ViewInstance = Object.Instantiate(_actorSelectButtonView,
-                                                      _ActorSelectButtonsContainer);
+                                                      _actorSelectButtonsContainerTransform);
                 ViewInstance.SetModel(actorViewModel);
             }
+            _selectAvailableActorsPresenterContainers.Show(data);
         }
+
     }
 }

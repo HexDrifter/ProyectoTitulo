@@ -25,12 +25,13 @@ namespace ProyectoTitulo.Framework
             _button_selectActor.onClick.RemoveAllListeners();
             _button_selectActor.onClick.AddListener(() =>
             {
-                ServiceLocator
-                .Instance
-                .GetService<SpawnPlayerActor>()
+                var spawnPosition = ServiceLocator.Instance.GetService<ILevelSetup>()
+                .SpawnPosition;
+
+                ServiceLocator.Instance.GetService<SpawnPlayerActor>()
                 .Spawn(_viewModel.EntityID,
-                       Vector3.zero,
-                       Quaternion.identity);
+                       spawnPosition.position,
+                       spawnPosition.rotation);
             });
         }
 

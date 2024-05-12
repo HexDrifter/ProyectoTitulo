@@ -6,7 +6,8 @@ namespace ProyectoTitulo.Domain
 {
     public interface ShowAvailableActorsOutput
     {
-        void Show(List<AvailableActorsData> availableActorsData);
+        void Hide(ShowContainerData data);
+        void Show(List<AvailableActorsData> availableActorsData, ShowContainerData data);
 
     }
 }

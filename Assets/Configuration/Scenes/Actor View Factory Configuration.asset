@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c6c21cfc986f54db770b16a33246e2, type: 3}
+  m_Name: Actor View Factory Configuration
+  m_EditorClassIdentifier: 
+  _actors:
+  - {fileID: 3979745479499444246, guid: f4b91526bd2ce1345b45589bc20f710b, type: 3}
+  - {fileID: 1296969460076439559, guid: 52a5e9904b15c9e49be09b08b32cb237, type: 3}
