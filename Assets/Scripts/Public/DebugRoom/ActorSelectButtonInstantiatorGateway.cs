@@ -25,7 +25,7 @@ namespace ProyectoTitulo.Framework
         {
             foreach (var actorData in availableActorsData)
             {
-                var actorViewModel = new ActorViewModel(actorData.ActorBaseID);
+                var actorViewModel = new ActorViewModel(actorData.ActorEntityID, actorData.ActorBaseID);
                 var actorPresenter = new ActorPresenter(actorViewModel);
                 _actorsPresenterContainers.AddNewPresenter(actorData.ActorEntityID, actorPresenter);
                 var ViewInstance = Object.Instantiate(_actorSelectButtonView,

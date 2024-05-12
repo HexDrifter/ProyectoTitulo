@@ -17,10 +17,10 @@ namespace ProyectoTitulo.Framework
         {
             _actors = new Dictionary<string, Actor>();
         }
-        public string Add(string baseID)
+        public string Add(string baseID, string viewID)
         {
             var entityID    = Guid.NewGuid().ToString();
-            var actor       = new Actor(entityID, baseID);
+            var actor       = new Actor(entityID, baseID, viewID);
             _actors         .Add(entityID, actor);
             return entityID;
         }

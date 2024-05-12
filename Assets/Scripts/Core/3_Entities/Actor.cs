@@ -8,11 +8,13 @@ namespace ProyectoTitulo.Entities
     {
         public readonly string EntityID;
         public readonly string BaseID;
+        public readonly string ViewID;
 
-        public Actor(string entityID, string baseID)
+        public Actor(string entityID, string baseID, string viewID)
         {
             EntityID = entityID;
             BaseID = baseID;
+            ViewID = viewID;
         }
     }
 }

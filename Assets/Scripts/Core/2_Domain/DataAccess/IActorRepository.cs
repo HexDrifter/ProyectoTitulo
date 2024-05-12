@@ -7,7 +7,7 @@ namespace ProyectoTitulo.Domain
     using Entities;
     public interface IActorRepository
     {
-        string Add(string baseID);
+        string Add(string baseID, string viewID);
         Actor Get(string entityID);
     }
 }

@@ -8,8 +8,9 @@ namespace ProyectoTitulo.Framework
     public class ActorConfiguration : ScriptableObject
     {
         [SerializeField] private string _baseID;
-        [SerializeField] private string _actorName;
-        public string actorName => _actorName;
+        [SerializeField] private ActorConfigurationData _data;
         public string baseID => _baseID;
+        public ActorConfigurationData Data => _data;
+
     }
 }

@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: SmallMarioConfiguration
   m_EditorClassIdentifier: 
   _baseID: mario
-  _actorName: Mario
+  _data:
+    _actorName: Mario
+    _selectableSprite: {fileID: 1694275362, guid: ce835df5d97817946afc1b558b2cefd8, type: 3}

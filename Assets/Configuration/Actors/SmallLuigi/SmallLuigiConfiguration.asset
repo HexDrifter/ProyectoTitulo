@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: SmallLuigiConfiguration
   m_EditorClassIdentifier: 
   _baseID: luigi
-  _actorName: Luigi
+  _data:
+    _actorName: Luigi
+    _selectableSprite: {fileID: 749174614, guid: c53267524b045734395b13931a4830ab, type: 3}

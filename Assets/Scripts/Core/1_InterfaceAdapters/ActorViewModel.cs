@@ -7,11 +7,13 @@ namespace ProyectoTitulo.InterfaceAdapters
 {
     public class ActorViewModel
     {
+        public readonly string EntityID;
         public StringReactiveProperty BaseID;
 
-        public ActorViewModel(string initialBaseID)
+        public ActorViewModel(string entityID, string baseID)
         {
-            BaseID = new StringReactiveProperty(initialBaseID
+            EntityID = entityID;
+            BaseID = new StringReactiveProperty(baseID
                 );
         }
     }
