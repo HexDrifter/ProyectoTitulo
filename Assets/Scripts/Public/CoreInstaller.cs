@@ -9,8 +9,14 @@ using UnityEngine;
 public class CoreInstaller : MonoBehaviour
 {
     [SerializeField] private ActorsDatabase _actorsDatabase;
+    private static bool _isInstalled;
     private void Awake()
     {
+        if (_isInstalled)
+        {
+            Debug.Log("Core Already Installed!");
+            return;
+        }
         var playerRepository = new PlayerRepository();
         var actorRepository = new ActorRepository();
 
@@ -21,6 +27,6 @@ public class CoreInstaller : MonoBehaviour
         _actorsDatabase.Preload();
 
         ServiceLocator.Instance.RegisterService<ActorsDatabase>(_actorsDatabase);
-        
+        _isInstalled = true;
     }
 }

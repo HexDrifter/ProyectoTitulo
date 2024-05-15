@@ -56,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2406716579567573262}
   - component: {fileID: 3128568259616266038}
+  - component: {fileID: 8183998659040645306}
   m_Layer: 0
   m_Name: Small_Mario_Idle
   m_TagString: Untagged
@@ -130,6 +131,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8183998659040645306
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761961597687412613}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09c3c59a8f4ec134bbe843e77004cf32, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6869506617287583768
 GameObject:
   m_ObjectHideFlags: 0

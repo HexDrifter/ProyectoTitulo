@@ -138,6 +138,237 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Look_Up
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 3546
+        width: 16
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09563cb5d7fc7f74dafea76b20a09bf4
+      internalID: 1968512022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Duck
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3546
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96923561fa9eecd4f8f5367eb2e007a8
+      internalID: 1748557618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 3546
+        width: 16
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0e66f39bf1149e4e9a42e4726f47deb
+      internalID: 1851990813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 3546
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c0b82433f46c844993ec2168b78576
+      internalID: -503682502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 3546
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26011ba5c0be9bd4ca45cc116dff68a4
+      internalID: 972738940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Run_0
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 3546
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c76ad99c1406904db3c8231da7f66d5
+      internalID: 735816924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Run_1
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 3546
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14cd0acae9fda584e8481877be9b16d6
+      internalID: -960165234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Run_2
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 3546
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa03d8458dd9a645947858c4c7cf415
+      internalID: 2131882424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Pipe
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 3482
+        width: 16
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4343dc2e9e6f34ea60f2ad2038af4a
+      internalID: 554930382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Jump
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 3482
+        width: 16
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da800a5980b468044be3c6a4f6c3b9e0
+      internalID: 1644326090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small_Luigi_Fall
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3482
+        width: 16
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f948b295120acb44ab79e328cb4ca6f1
+      internalID: -1821222580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -149,7 +380,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Small_Luigi_Duck: 1748557618
+      Small_Luigi_Fall: -1821222580
       Small_Luigi_Idle: 194611600
+      Small_Luigi_Jump: 1644326090
+      Small_Luigi_Look_Up: 1968512022
+      Small_Luigi_Pipe: 554930382
+      Small_Luigi_Run_0: 735816924
+      Small_Luigi_Run_1: -960165234
+      Small_Luigi_Run_2: 2131882424
+      Small_Luigi_Walk_0: 1851990813
+      Small_Luigi_Walk_1: -503682502
+      Small_Luigi_Walk_2: 972738940
       Tall_Luigi_Front: 749174614
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

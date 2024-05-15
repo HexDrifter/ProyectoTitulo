@@ -23,25 +23,6 @@ public class SelectAvailableActorsContainerView : BaseReactiveView
 
         _viewModel
             .IsVisible
-            .Where((x) => x.Visibility == true)
-            .Subscribe(x =>
-            {
-                _visibilityCanvas.gameObject.SetActive(true);
-                _visibilityCanvas.blocksRaycasts = true;
-                _visibilityCanvas.interactable = false;
-                _visibilitySequence.Kill();
-                _visibilitySequence = DOTween.Sequence();
-                _visibilitySequence.Append(
-                _visibilityCanvas.DOFade(1, x.TransitionTime).OnComplete(() =>
-                {
-                    _visibilityCanvas.interactable = true;
-                }));
-
-            })
-            .AddTo(_disposables);
-
-        _viewModel
-            .IsVisible
             .Where((x) => x.Visibility == false)
             .Subscribe(x =>
             {
@@ -59,6 +40,24 @@ public class SelectAvailableActorsContainerView : BaseReactiveView
             })
             .AddTo(_disposables);
 
+        _viewModel
+            .IsVisible
+            .Where((x) => x.Visibility == true)
+            .Subscribe(x =>
+            {
+                _visibilityCanvas.gameObject.SetActive(true);
+                _visibilityCanvas.blocksRaycasts = true;
+                _visibilityCanvas.interactable = false;
+                _visibilitySequence.Kill();
+                _visibilitySequence = DOTween.Sequence();
+                _visibilitySequence.Append(
+                _visibilityCanvas.DOFade(1, x.TransitionTime).OnComplete(() =>
+                {
+                    _visibilityCanvas.interactable = true;
+                }));
+
+            })
+            .AddTo(_disposables);
     }
 
 }
