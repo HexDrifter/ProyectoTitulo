@@ -25,13 +25,7 @@ namespace ProyectoTitulo.Framework
             _button_selectActor.onClick.RemoveAllListeners();
             _button_selectActor.onClick.AddListener(() =>
             {
-                var spawnPosition = ServiceLocator.Instance.GetService<ILevelSetup>()
-                .SpawnPosition;
-
-                ServiceLocator.Instance.GetService<SpawnPlayerActor>()
-                .Spawn(_viewModel.EntityID,
-                       spawnPosition.position,
-                       spawnPosition.rotation);
+                ServiceLocator.Instance.GetService<SpawnPlayerActorController>().SpawnPlayerActor(_viewModel.EntityID);
             });
         }
 

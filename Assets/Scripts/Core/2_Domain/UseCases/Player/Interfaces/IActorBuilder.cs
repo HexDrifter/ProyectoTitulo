@@ -8,7 +8,7 @@ namespace ProyectoTitulo.Domain
     {
         IActorBuilder FromBehavior(string behaviorID);
         IActorBuilder WithView(string viewID);
-        void Build(Vector3 position, Quaternion rotation);
+        void Build(string entityID, Vector3 position, Quaternion rotation);
 
         
     }

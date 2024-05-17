@@ -11,19 +11,23 @@ namespace ProyectoTitulo.Framework
         private readonly ActorViewFactory _viewFactory;
         private string _behaviorID;
         private string _viewID;
+        private Dictionary<string, PlayerActorBehavior> _spawnedBehaviors;
+
 
         public ActorBuilder(ActorBehaviorFactory actorBehaviorFactory,
                             ActorViewFactory viewFactory)
         {
             _actorBehaviorFactory = actorBehaviorFactory;
             _viewFactory = viewFactory;
+            _spawnedBehaviors = new Dictionary<string, PlayerActorBehavior>();
         }
 
-        public void Build(Vector3 position, Quaternion rotation)
+        public void Build(string entityID, Vector3 position, Quaternion rotation)
         {
             Debug.Log("Instanciando personaje.");
             var behaviorInstance = _actorBehaviorFactory.Create(_behaviorID, position, rotation);
             var viewInstance = _viewFactory.Create(_viewID,behaviorInstance.transform);
+            _spawnedBehaviors.Add(entityID,behaviorInstance);
         }
 
         public IActorBuilder FromBehavior(string behaviorID)
@@ -36,6 +40,11 @@ namespace ProyectoTitulo.Framework
         {
             _viewID = viewID;
             return this;
+        }
+
+        public PlayerActorBehavior Get(string entityID)
+        {
+            return _spawnedBehaviors[entityID];
         }
     }
 }

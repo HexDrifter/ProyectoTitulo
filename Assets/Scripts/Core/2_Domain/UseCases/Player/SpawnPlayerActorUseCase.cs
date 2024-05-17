@@ -28,7 +28,7 @@ namespace ProyectoTitulo.Domain
             _actorBuilder
                 .FromBehavior(actor.BaseID)
                 .WithView(actor.ViewID)
-                .Build(position,rotation);
+                .Build(actorEntityID, position,rotation);
             _showAvailableActorsOutput.Hide(new ShowContainerData(false,_configurationData.HideAvailableActorsContainerTime));
         }
     }

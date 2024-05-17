@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System;
+using UnityEditor.Rendering.LookDev;
 
 public class Setup_DebugRoom : MonoBehaviour, ILevelSetup
 {
@@ -19,6 +20,10 @@ public class Setup_DebugRoom : MonoBehaviour, ILevelSetup
     [SerializeField] private Transform _actorSelectButtonsContainer;
     [SerializeField] private SelectAvailableActorsContainerView _availableActorsContainerView;
     [SerializeField] private Transform _spawnPosition;
+
+
+    private PlayerHandler _playerHandler;
+    private GameInput _gameInput;
 
 
 
@@ -62,11 +67,13 @@ public class Setup_DebugRoom : MonoBehaviour, ILevelSetup
                                                                   _debugRoomConfiguration.ConfigurationData);
 
         ServiceLocator.Instance.RegisterService<SpawnPlayerActor> (spawnPlayerActorUseCase);
+        ServiceLocator.Instance.RegisterService<ActorBuilder>(actorBuilder);
 
         var playerViewModel = new PlayerViewModel(player.money, player.lifes);
         var playerPresenter = new PlayerPresenter(playerViewModel);
         var pickMoneyUseCase = new PickMoneyUseCase(playerRepository, playerPresenter, playerPresenter);
         _playerGameplayUIView.SetModel(playerViewModel);
+
 
         ServiceLocator.Instance.RegisterService<PickMoney>(pickMoneyUseCase);
 
@@ -76,23 +83,26 @@ public class Setup_DebugRoom : MonoBehaviour, ILevelSetup
 
         _selectAvailableActorsContainerViewModel = selectAvailableActorsViewModel;
 
+        _playerHandler = new PlayerHandler();
+        _gameInput = new GameInput();
+
+        ServiceLocator.Instance.RegisterService<PlayerHandler>(_playerHandler);
+        _gameInput.Actor.Jump.started += (context) =>
+        {
+            _playerHandler.inputBuffer.Add("jump");
+        };
+        ServiceLocator.Instance.RegisterService<GameInput>(_gameInput);
 
     }
     private async void Start()
     {
         await UniTask.Yield();
+        
+    
         await UniTask.Yield();
         ServiceLocator.Instance.GetService<ShowAvailableActors>().Show();
-        for (int i = 0; i < 41; i++)
-        {
-            await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
-            ServiceLocator.Instance.GetService<PickMoney>().Pick(5);
-        }
-        for (int i = 0; i < 10; i++)
-        {
-            await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
-            ServiceLocator.Instance.GetService<PickLife>().Pick(2);
-        }
+        
+
 
     }
 
@@ -105,5 +115,10 @@ public class Setup_DebugRoom : MonoBehaviour, ILevelSetup
     public void HideActors()
     {
         _selectAvailableActorsContainerViewModel.IsVisible.Value = new ShowContainerData(false, 1f);
+    }
+    public void Update()
+    {
+        _playerHandler.SetInputDirection(_gameInput.Actor.Move.ReadValue<Vector2>());
+        _playerHandler.Tick();
     }
 }
