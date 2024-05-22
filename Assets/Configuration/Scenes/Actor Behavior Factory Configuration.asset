@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Actor Behavior Factory Configuration
   m_EditorClassIdentifier: 
   _actorBehaviors:
-  - {fileID: 7044174104046103765, guid: c9590d9498f82014a97f337ae8b1583e, type: 3}
+  - {fileID: 4393586629783703301, guid: dac6e42a4f0583f4895aa63d47a93ef1, type: 3}
   - {fileID: 5762553911580146815, guid: f8ea90a58ca2b3f40a77d91672194f9a, type: 3}
