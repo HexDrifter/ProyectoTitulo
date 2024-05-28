@@ -64,7 +64,7 @@ namespace ProyectoTitulo.Framework
         }
         protected void IsGrounded()
         {
-            if (Physics2D.CircleCast(transform.position + (Vector3.up * 0.15f),0.2f,Vector3.down,0.2f,_groundLayer))
+            if (Physics2D.CircleCast(transform.position + (Vector3.up * 0.15f),0.16f,Vector3.down,0.15f,_groundLayer))
             {
                 _actorReusableData.isGrounded = true;
             }
@@ -78,6 +78,12 @@ namespace ProyectoTitulo.Framework
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position + (Vector3.up * 0.15f),0.2f);
+            if(_locomotionStateMachine != null)
+            {
+                Gizmos.color = _locomotionStateMachine.GetGizmoColor();
+                Gizmos.DrawWireSphere(transform.position + ( Vector3.up * 1.5f), 0.2f);
+            }
+            
         }
     }
 }

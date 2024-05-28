@@ -14,4 +14,9 @@ public class PlayerActorIdleState : PlayerActorGroundedState
         base.OnEnter();
         ResetVelocity();
     }
+    
+    public override Color GizmoColor()
+    {
+        return Color.grey;
+    }
 }

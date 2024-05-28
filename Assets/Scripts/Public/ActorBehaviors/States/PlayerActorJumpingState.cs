@@ -23,4 +23,9 @@ public class PlayerActorJumpingState : PlayerActorAirboneState
         base.PhysicsTick();
         Owner.Rigidbody2D.AddForce((Owner.InputDirection.x * Owner.MoveSpeed) * Vector3.right - GetHorizontalVelocity(), ForceMode2D.Force);
     }
+
+    public override Color GizmoColor()
+    {
+        return Color.green;
+    }
 }

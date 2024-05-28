@@ -14,4 +14,9 @@ public class PlayerActorStoppingState : PlayerActorGroundedState
         base.PhysicsTick();
         DecelerateHorizontally(Owner.ReusableData.DecelerationForce);
     }
+
+    public override Color GizmoColor()
+    {
+        return Color.red;
+    }
 }

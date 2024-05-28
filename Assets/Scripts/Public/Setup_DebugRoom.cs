@@ -8,10 +8,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System;
-using UnityEditor.Rendering.LookDev;
+using Cinemachine;
 
 public class Setup_DebugRoom : MonoBehaviour, ILevelSetup
 {
+    [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private ScriptableDebugRoomConfiguration _debugRoomConfiguration;
     [SerializeField] private ActorBehaviorFactoryConfiguration _actorBehaviorFactoryConfiguration;
     [SerializeField] private ActorViewFactoryConfiguration _actorViewFactoryConfiguration;
@@ -60,7 +61,8 @@ public class Setup_DebugRoom : MonoBehaviour, ILevelSetup
         ServiceLocator.Instance.RegisterService<ShowAvailableActors>(showAvailableActorsUseCase);
         var actorBehaviorFactory = new ActorBehaviorFactory(_actorBehaviorFactoryConfiguration);
         var actorViewFactory = new ActorViewFactory(_actorViewFactoryConfiguration);
-        var actorBuilder = new ActorBuilder(actorBehaviorFactory, actorViewFactory);
+        var cameraService = new CinemachineCameraService(_virtualCamera);
+        var actorBuilder = new ActorBuilder(actorBehaviorFactory, actorViewFactory,cameraService);
         var spawnPlayerActorUseCase = new SpawnPlayerActorUseCase(actorRepository,
                                                                   actorBuilder,
                                                                   actorSelectButtonInstantiatorGateway,

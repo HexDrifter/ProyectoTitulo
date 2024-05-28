@@ -7,6 +7,7 @@ namespace ProyectoTitulo.Framework
 {
     public class ActorBuilder : IActorBuilder
     {
+        private readonly ICameraService _cameraService;
         private readonly ActorBehaviorFactory _actorBehaviorFactory;
         private readonly ActorViewFactory _viewFactory;
         private string _behaviorID;
@@ -15,11 +16,13 @@ namespace ProyectoTitulo.Framework
 
 
         public ActorBuilder(ActorBehaviorFactory actorBehaviorFactory,
-                            ActorViewFactory viewFactory)
+                            ActorViewFactory viewFactory,
+                            ICameraService cameraService)
         {
             _actorBehaviorFactory = actorBehaviorFactory;
             _viewFactory = viewFactory;
             _spawnedBehaviors = new Dictionary<string, PlayerActorBehavior>();
+            _cameraService = cameraService;
         }
 
         public void Build(string entityID, Vector3 position, Quaternion rotation)
@@ -28,6 +31,7 @@ namespace ProyectoTitulo.Framework
             var behaviorInstance = _actorBehaviorFactory.Create(_behaviorID, position, rotation);
             var viewInstance = _viewFactory.Create(_viewID,behaviorInstance.transform);
             _spawnedBehaviors.Add(entityID,behaviorInstance);
+            _cameraService.TargetActor(behaviorInstance.transform);
         }
 
         public IActorBuilder FromBehavior(string behaviorID)
