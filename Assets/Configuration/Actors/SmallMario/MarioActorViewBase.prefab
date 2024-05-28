@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7724759630997932108}
   - component: {fileID: 3979745479499444246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MarioActorViewBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 2406716579567573262}
   - component: {fileID: 3128568259616266038}
   - component: {fileID: 8183998659040645306}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small_Mario_Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7356373574166859430}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

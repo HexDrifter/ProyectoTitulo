@@ -45,4 +45,11 @@ public class PlayerActorLocomotionState : IState
         velocity.y = 0;
         return velocity;
     }
+
+    protected void ResetVerticalVelocity()
+    {
+        var velocity = GetHorizontalVelocity();
+        Owner.Rigidbody2D.velocity = velocity;
+    }
+    
 }

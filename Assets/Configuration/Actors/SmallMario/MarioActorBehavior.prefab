@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4393586629783703301}
   - component: {fileID: 8775515335806785240}
   - component: {fileID: 8283077205921812073}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MarioActorBehavior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,10 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b597771295392bc43a9537a856479dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actorReusableData:
+    _decelerationForce: 3
+    _jumpForce: 10
+    isGrounded: 0
   _id: mario
   _rigidbody2D: {fileID: 8775515335806785240}
   _moveSpeed: 3
   _jumpForce: 15
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!50 &8775515335806785240
 Rigidbody2D:
   serializedVersion: 4
@@ -76,7 +83,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &8283077205921812073
 BoxCollider2D:
   m_ObjectHideFlags: 0

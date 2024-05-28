@@ -35,11 +35,7 @@ namespace ProyectoTitulo.Framework
             if (_activeActor == null) return;
             _buffer.Tick();
             _activeActor.SetInputDirection(_inputDirection);
-            if (_buffer.Peek("jump"))
-            {
-                _buffer.Remove();
-                _activeActor.Jump();
-            }
+            
         }
     }
 }

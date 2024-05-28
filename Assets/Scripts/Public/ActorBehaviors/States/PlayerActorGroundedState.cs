@@ -8,4 +8,10 @@ public class PlayerActorGroundedState : PlayerActorLocomotionState
     public PlayerActorGroundedState(PlayerActorBehavior owner) : base(owner)
     {
     }
+
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        Owner.ReusableData.timeInAir = 0;
+    }
 }

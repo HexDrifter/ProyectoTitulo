@@ -1,8 +1,10 @@
 using ProyectoTitulo.Domain;
+using ProyectoTitulo.SystemUtilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace ProyectoTitulo.Framework
 {
@@ -14,6 +16,7 @@ namespace ProyectoTitulo.Framework
         [SerializeField] private Rigidbody2D _rigidbody2D;
         [SerializeField] private float _moveSpeed = 3.0f;
         [SerializeField] private float _jumpForce = 5f;
+        [SerializeField] private LayerMask _groundLayer;
         private Vector2 _inputDirection;
 
         public string ID  => _id;
@@ -22,6 +25,7 @@ namespace ProyectoTitulo.Framework
         public float JumpForce => _jumpForce;
         public Vector2 InputDirection => _inputDirection;
         public ActorReusableData ReusableData => _actorReusableData;
+
 
 
         protected string AtLocomotion(IState from, IState to, Func<bool> condition) => _locomotionStateMachine.AddTransition(from, to,condition);
@@ -33,6 +37,7 @@ namespace ProyectoTitulo.Framework
 
         private void Update()
         {
+            IsGrounded();
             _locomotionStateMachine.Tick();
         }
         private void FixedUpdate()
@@ -43,11 +48,36 @@ namespace ProyectoTitulo.Framework
         {
             _inputDirection = inputDirection;
         }
-        public void Jump()
+        
+        protected bool CheckAndDequeueInput(string input)
         {
-            _rigidbody2D.AddForce(Vector3.up * _jumpForce, ForceMode2D.Impulse);
+            var peek = ServiceLocator.Instance.GetService<PlayerHandler>().inputBuffer.Peek(input);
+            if (peek)
+            {
+                ServiceLocator.Instance.GetService<PlayerHandler>().inputBuffer.Remove();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        protected void IsGrounded()
+        {
+            if (Physics2D.CircleCast(transform.position + (Vector3.up * 0.15f),0.2f,Vector3.down,0.2f,_groundLayer))
+            {
+                _actorReusableData.isGrounded = true;
+            }
+            else
+            {
+                _actorReusableData.isGrounded = false;
+            }
         }
 
-
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position + (Vector3.up * 0.15f),0.2f);
+        }
     }
 }
