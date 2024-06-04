@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 789024521634920358}
   - component: {fileID: 1561476662960160395}
   m_Layer: 0
-  m_Name: Ground Overworld Pallete
+  m_Name: Ground Overworld Palette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

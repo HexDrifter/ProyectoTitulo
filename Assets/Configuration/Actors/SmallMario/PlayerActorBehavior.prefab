@@ -46,10 +46,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9bf1fade551834e9f33331e9968ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actorReusableData:
+    _decelerationForce: 3
+    _jumpForce: 15
+    _coyoteTime: 0.2
+    isGrounded: 0
+    timeInAir: 0
   _id: mario
   _rigidbody2D: {fileID: 7433767403825397556}
   _moveSpeed: 3
   _jumpForce: 15
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &7433767403825397556
 Rigidbody2D:
   serializedVersion: 4

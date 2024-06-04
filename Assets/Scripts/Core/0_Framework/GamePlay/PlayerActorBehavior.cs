@@ -18,6 +18,7 @@ namespace ProyectoTitulo.Framework
         [SerializeField] private float _jumpForce = 5f;
         [SerializeField] private LayerMask _groundLayer;
         private Vector2 _inputDirection;
+        private RaycastHit2D _groundedHit;
 
         public string ID  => _id;
         public Rigidbody2D Rigidbody2D => _rigidbody2D;
@@ -64,7 +65,10 @@ namespace ProyectoTitulo.Framework
         }
         protected void IsGrounded()
         {
-            if (Physics2D.CircleCast(transform.position + (Vector3.up * 0.15f),0.16f,Vector3.down,0.15f,_groundLayer))
+            _groundedHit = Physics2D.BoxCast(transform.position + Vector3.up * 0.05f, new Vector2(0.5f,0.1f),0f,Vector2.down,0.05f,_groundLayer);
+
+            //if (Physics2D.CircleCast(transform.position + (Vector3.up * 0.15f),0.16f,Vector3.down,0.15f,_groundLayer))
+            if (_groundedHit.collider!=null)
             {
                 _actorReusableData.isGrounded = true;
             }
@@ -72,12 +76,14 @@ namespace ProyectoTitulo.Framework
             {
                 _actorReusableData.isGrounded = false;
             }
+
+
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position + (Vector3.up * 0.15f),0.2f);
+            Gizmos.DrawWireCube(transform.position + Vector3.up * 0.05f, new Vector3(0.5f,0.1f,0f));
             if(_locomotionStateMachine != null)
             {
                 Gizmos.color = _locomotionStateMachine.GetGizmoColor();
