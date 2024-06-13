@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class LuigiActorBehavior : PlayerActorBehavior
 {
-    protected override void Awake()
+    public override void Initialize(Animator animator)
     {
-        base.Awake();
+        base.Initialize(animator);
     }
 }

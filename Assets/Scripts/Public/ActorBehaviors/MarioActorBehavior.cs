@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class MarioActorBehavior : PlayerActorBehavior
 {
-    protected override void Awake()
+    
+    
+    public override void Initialize(Animator animator)
     {
-        base.Awake();
+        base.Initialize(animator);
+
         var idleState = new PlayerActorIdleState(this);
         var walkingState = new PlayerActorWalkingState(this);
         var stoppingState = new PlayerActorStoppingState(this);
         var fallingState = new PlayerActorFallingState(this);
         var jumpingState = new PlayerActorJumpingState(this);
-        
         AtLocomotion(idleState, walkingState, () => InputDirection!= Vector2.zero);
         AtLocomotion(idleState, jumpingState, () => ReusableData.isGrounded && CheckAndDequeueInput("jump"));
         AtLocomotion(idleState, fallingState, () => !ReusableData.isGrounded);

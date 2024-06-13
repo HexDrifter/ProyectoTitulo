@@ -12,10 +12,15 @@ public class PlayerActorJumpingState : PlayerActorAirboneState
     public override void OnEnter()
     {
         Owner.Rigidbody2D.AddForce(Vector3.up * Owner.ReusableData.JumpForce, ForceMode2D.Impulse);
+        Owner.ViewAnimator.Play("Jump");
     }
 
     public bool ShouldFall()
     {
+        if(Owner.inputJump==false)
+        {
+            DecelerateVertically(1);
+        }
         return Owner.Rigidbody2D.velocity.y < 0 && !Owner.ReusableData.isGrounded;
     }
     public override void PhysicsTick()

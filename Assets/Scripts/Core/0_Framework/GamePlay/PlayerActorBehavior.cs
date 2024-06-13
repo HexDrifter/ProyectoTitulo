@@ -10,6 +10,7 @@ namespace ProyectoTitulo.Framework
 {
     public class PlayerActorBehavior : MonoBehaviour
     {
+
         protected StateMachine _locomotionStateMachine;
         [SerializeField] private ActorReusableData _actorReusableData;
         [SerializeField] private string _id;
@@ -18,23 +19,31 @@ namespace ProyectoTitulo.Framework
         [SerializeField] private float _jumpForce = 5f;
         [SerializeField] private LayerMask _groundLayer;
         private Vector2 _inputDirection;
+        private bool _inputJump;
         private RaycastHit2D _groundedHit;
+        private Animator _viewAnimator;
+        public Animator ViewAnimator => _viewAnimator;
 
         public string ID  => _id;
         public Rigidbody2D Rigidbody2D => _rigidbody2D;
         public float MoveSpeed => _moveSpeed;
         public float JumpForce => _jumpForce;
+        public bool inputJump => _inputJump;
         public Vector2 InputDirection => _inputDirection;
         public ActorReusableData ReusableData => _actorReusableData;
 
 
 
+
         protected string AtLocomotion(IState from, IState to, Func<bool> condition) => _locomotionStateMachine.AddTransition(from, to,condition);
 
-        protected virtual void Awake()
+        public virtual void Initialize(Animator animator)
         {
+            
             _locomotionStateMachine = new StateMachine();
+            _viewAnimator = animator;
         }
+        
 
         private void Update()
         {
@@ -49,7 +58,10 @@ namespace ProyectoTitulo.Framework
         {
             _inputDirection = inputDirection;
         }
-        
+        internal void SetInputJump(bool inputJump)
+        {
+            _inputJump = inputJump;
+        }
         protected bool CheckAndDequeueInput(string input)
         {
             var peek = ServiceLocator.Instance.GetService<PlayerHandler>().inputBuffer.Peek(input);

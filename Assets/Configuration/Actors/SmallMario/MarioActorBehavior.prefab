@@ -47,14 +47,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actorReusableData:
-    _decelerationForce: 3
+    _decelerationForce: 4
     _jumpForce: 10
     _coyoteTime: 0.2
     isGrounded: 0
     timeInAir: 0
   _id: mario
   _rigidbody2D: {fileID: 8775515335806785240}
-  _moveSpeed: 7
+  _moveSpeed: 5.98
   _jumpForce: 15
   _groundLayer:
     serializedVersion: 2

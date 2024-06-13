@@ -12,5 +12,6 @@ public class PlayerActorAirboneState : PlayerActorLocomotionState
     {
         base.Tick();
         Owner.ReusableData.timeInAir += Time.deltaTime;
+        Flip(Owner.InputDirection.x);
     }
 }

@@ -6,14 +6,20 @@ namespace ProyectoTitulo.Framework
 {
     public class PlayerHandler
     {
-        private InputBuffer _buffer;
+        private InputBuffer         _buffer;
         private PlayerActorBehavior _activeActor;
-        private Vector2 _inputDirection;
+        private Vector2             _inputDirection;
+        private bool                _jumpInput;
         
+        public PlayerActorBehavior  activeActor     => _activeActor;
+        public InputBuffer          inputBuffer     => _buffer;
+        public Vector2              inputDirection  => _inputDirection;
+        public bool                 jumpInput       => _jumpInput;
 
-        public PlayerActorBehavior activeActor => _activeActor;
-        public InputBuffer inputBuffer => _buffer;
-        public Vector2 inputDirection => _inputDirection;
+        public void SetInputJump(bool jumpInput)
+        {
+            _jumpInput = jumpInput;
+        }
 
         public PlayerHandler()
         {
@@ -35,6 +41,7 @@ namespace ProyectoTitulo.Framework
             if (_activeActor == null) return;
             _buffer.Tick();
             _activeActor.SetInputDirection(_inputDirection);
+            _activeActor.SetInputJump(_jumpInput);
             
         }
     }

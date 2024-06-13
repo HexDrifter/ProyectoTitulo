@@ -8,7 +8,11 @@ public class PlayerActorWalkingState : PlayerActorGroundedState
     public PlayerActorWalkingState(PlayerActorBehavior owner) : base(owner)
     {
     }
-
+    public override void OnEnter()
+    {
+        base.OnEnter();
+        Owner.ViewAnimator.Play("Walk");
+    }
     public override void PhysicsTick()
     {
         base.PhysicsTick();

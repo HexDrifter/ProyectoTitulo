@@ -14,4 +14,9 @@ public class PlayerActorGroundedState : PlayerActorLocomotionState
         base.OnEnter();
         Owner.ReusableData.timeInAir = 0;
     }
+    public override void Tick()
+    {
+        base.Tick();
+        Flip(Owner.InputDirection.x);
+    }
 }

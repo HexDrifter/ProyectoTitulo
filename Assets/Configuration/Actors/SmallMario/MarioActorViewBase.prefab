@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: Mario
+  _animator: {fileID: 8183998659040645306}
 --- !u!1 &5761961597687412613
 GameObject:
   m_ObjectHideFlags: 0

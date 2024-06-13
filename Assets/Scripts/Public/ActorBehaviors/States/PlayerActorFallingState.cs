@@ -12,7 +12,9 @@ public class PlayerActorFallingState : PlayerActorAirboneState
     public override void OnEnter()
     {
         base.OnEnter();
+        
         ResetVerticalVelocity();
+        Owner.ViewAnimator.Play("Fall");
     }
 
     public override void PhysicsTick()

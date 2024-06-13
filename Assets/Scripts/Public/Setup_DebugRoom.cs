@@ -121,6 +121,7 @@ public class Setup_DebugRoom : MonoBehaviour, ILevelSetup
     public void Update()
     {
         _playerHandler.SetInputDirection(_gameInput.Actor.Move.ReadValue<Vector2>());
+        _playerHandler.SetInputJump(_gameInput.Actor.Jump.ReadValue<float>()==1);
         _playerHandler.Tick();
     }
 }

@@ -13,6 +13,7 @@ public class PlayerActorIdleState : PlayerActorGroundedState
     {
         base.OnEnter();
         ResetVelocity();
+        Owner.ViewAnimator.Play("Idle");
     }
     
     public override Color GizmoColor()

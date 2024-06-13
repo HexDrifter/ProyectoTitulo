@@ -32,6 +32,7 @@ namespace ProyectoTitulo.Framework
             var viewInstance = _viewFactory.Create(_viewID,behaviorInstance.transform);
             _spawnedBehaviors.Add(entityID,behaviorInstance);
             _cameraService.TargetActor(behaviorInstance.transform);
+            behaviorInstance.Initialize(viewInstance.Animator);
         }
 
         public IActorBuilder FromBehavior(string behaviorID)
